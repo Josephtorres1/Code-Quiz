@@ -1,18 +1,18 @@
-const startButton = document.getElementById("start-btn");
-const nextButton = document.getElementById("next-btn");
-const saveButton = document.getElementById("save-btn");
+const startBtn = document.getElementById("start-btn");
+const nextBtn = document.getElementById("next-btn");
+const saveBtn = document.getElementById("save-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
-const answerButtonsElement = document.getElementById("answer-buttons");
 const countdown = document.getElementById("countdown");
+const answerBtnElement = document.getElementById("answer-buttons");
 const form = document.getElementById("initials");
 
 let shuffledQuestions, currentQuestionIndex;
 
-startButton.addEventListener("click", startGame);
-saveButton.addEventListener("click", saveScore);
-startButton.addEventListener("click", startCountdown);
-nextButton.addEventListener("click", () => {
+startBtn.addEventListener("click", startGame);
+saveBtn.addEventListener("click", saveScore);
+startBtn.addEventListener("click", startCountdown);
+nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
 });
@@ -20,7 +20,7 @@ nextButton.addEventListener("click", () => {
 function startGame() {
   countdown.classList.remove("hide");
   countdown.innerText = "60";
-  startButton.classList.add("hide");
+  startBtn.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
@@ -39,7 +39,7 @@ function startCountdown() {
       clearInterval(countdown);
       questionContainerElement.classList.add("hide");
       form.classList.remove("hide");
-      saveButton.classList.remove("hide");
+      saveBtn.classList.remove("hide");
     }
   }, 1000);
 }
@@ -48,10 +48,10 @@ function saveScore() {
   var highscores = [];
   highscores.push(countdown.textContent);
   console.log(highscores);
-  saveButton.classList.add("hide");
+  saveBtn.classList.add("hide");
   countdown.classList.add("hide");
-  startButton.innerText = "Restart";
-  startButton.classList.remove("hide");
+  startBtn.innerText = "Restart";
+  startBtn.classList.remove("hide");
   localStorage.setItem("highscores", JSON.stringify(highscores));
   var storedScores = JSON.parse(localStorage.getItem("highscores"));
 }
@@ -71,15 +71,15 @@ function showQuestion(question) {
       button.dataset.correct = answer.correct;
     }
     button.addEventListener("click", selectAnswer);
-    answerButtonsElement.appendChild(button);
+    answerBtnElement.appendChild(button);
   });
 }
 
 function resetState() {
   clearStatusClass(document.body);
-  nextButton.classList.add("hide");
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+  nextBtn.classList.add("hide");
+  while (answerBtnElement.firstChild) {
+    answerBtnElement.removeChild(answerBtnElement.firstChild);
   }
 }
 
@@ -87,11 +87,11 @@ function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
-  Array.from(answerButtonsElement.children).forEach((button) => {
+  Array.from(answerBtnElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove("hide");
+    nextBtn.classList.remove("hide");
   }
 }
 
