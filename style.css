@@ -3,15 +3,6 @@
 *::after {
   box-sizing: border-box;
 }
-.container {
-  width: 800px;
-  max-width: 80%;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px 2px;
-}
-
 body {
   padding: 0;
   margin: 0;
@@ -21,6 +12,15 @@ body {
   justify-content: center;
   align-items: center;
   background-color: gray;
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
 }
 
 .btn-grid {
@@ -46,11 +46,11 @@ body {
 }
 
 .btn.correct {
-  background-color: lightgreen;
+  background-color: rgb(12, 231, 12);
 }
 
 .btn.wrong {
-  background-color: lightcoral;
+  background-color: rgb(253, 7, 7);
 }
 
 .start-btn,
