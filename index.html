@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz</title>
+    <link href="style.css" rel="stylesheet" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="question-container" class="hide">
+        <div id="question">Questions</div>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+        <button id="save-btn" class="save-btn btn hide">Save Score</button>
+      </div>
+      <div class="scorekeeper">
+        <div id="initials" class="form hide">
+          <label for="name">Your Initials</label>
+          <input
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="ABC"
+          />
+        </div>
+        <div>
+          <button id="highscores-btn" class="highscores-btn btn hide">
+            View Highscores
+          </button>
+        </div>
+        <span id="countdown" class="btn">30</span>
+      </div>
+    </div>
+  </body>
+</html>
